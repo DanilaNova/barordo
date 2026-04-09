@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"Lua.diagnostics.libraryFiles": "Enable",
+    	"Lua.workspace.library": [
+        	"C:/Projects/types2/server",
+			"C:/Projects/types2/shared",
+		],
+		"Lua.diagnostics.globals": [
+			"ServerLogMessageType"
+		],
+	},
+}

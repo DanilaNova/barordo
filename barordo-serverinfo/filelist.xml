@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Barordo Server info logger" modversion="0.1" corepackage="false">
+	<Other file="%ModDir%/Lua/Autorun/init.lua" />
+</contentpackage>

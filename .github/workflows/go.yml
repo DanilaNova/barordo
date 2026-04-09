@@ -19,9 +19,14 @@ on:
 jobs:
 
   build:
-    permissions: write-all
 
+    permissions: write-all
     runs-on: ubuntu-latest
+
+    defaults: 
+      run:
+        working-directory: ./barordo
+
     steps:
     - uses: actions/checkout@v4
 
@@ -31,24 +36,29 @@ jobs:
         go-version: '1.26.1'
 
     - name: Build for Linux
-      run: go build -o barordo -v
+      run: go build -o ../release/barordo -v
       env:
         GOOS: linux
         GOARCH: amd64
 
     - name: Build for Windows
-      run: go build -o barordo.exe -v
+      run: go build -o ../release/barordo.exe -v
       env:
         GOOS: windows
         GOARCH: amd64
+
+    - name: Pack Barotrauma mod
+      run: zip -r release/barordo-serverinfo.zip barordo-serverinfo
+      working-directory: ./
 
     - name: Publish release
       uses: ncipollo/release-action@v1.21.0
       with:
         tag: ${{ inputs.tag }}
         commit: ${{ inputs.commit }}
-        artifacts: "barordo,barordo.exe"
+        artifacts: "release/barordo,release/barordo.exe,release/barordo-serverinfo.zip"
         
         
     # - name: Test
     #   run: go test -v ./...
+    

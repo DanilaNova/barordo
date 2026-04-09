@@ -1,4 +1,4 @@
-module github.com/DanilaNova/barordo
+module github.com/DanilaNova/barordo/barordo
 
 go 1.26.1
 
